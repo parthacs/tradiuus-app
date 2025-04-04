@@ -25,3 +25,75 @@
 #container a {
   text-decoration: none;
 }
+
+.splash-container {
+  --background: #0f0f2d;
+  --color: white;
+  height: 100%;
+  width: 100%;
+}
+
+.splash-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 0 20px;
+  
+  .logo-section, .message-section, .footer-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+  }
+  
+  .logo-section {
+    align-items: flex-end;
+    padding-bottom: 15px;
+    
+    .logo-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      
+      .logo {
+        max-width: 250px;
+        width: 80%;
+        height: auto;
+      }
+    }
+  }
+  
+  .message-section {
+    align-items: center;
+    
+    .splash-message {
+      max-width: 300px;
+      width: 100%;
+      
+      p {
+        color: white;
+        font-size: 18px;
+        line-height: 1.5;
+        text-align: center;
+        margin: 0;
+      }
+    }
+  }
+  
+  .footer-section {
+    align-items: flex-start;
+    padding-top: 15px;
+    
+    .footer-text {
+      width: 100%;
+      text-align: center;
+      
+      p {
+        color: white;
+        font-size: 16px;
+        font-weight: 300;
+        margin: 0;
+      }
+    }
+  }
+}

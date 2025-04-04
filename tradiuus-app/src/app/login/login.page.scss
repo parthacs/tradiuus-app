@@ -1,0 +1,168 @@
+ion-content {
+  --background: #ffffff;
+  font-family: 'Roboto', sans-serif;
+  padding: 0 !important;
+}
+
+/* Header styles */
+.header {
+  display: flex;
+  flex-direction: column;
+  padding-top: 12px;
+  margin-bottom: 0; /* Reduce bottom margin */
+
+  .logo-container {
+    display: flex;
+    justify-content: flex-start; /* Left align */
+    align-items: center;
+    height: 70px; /* Make even larger */
+    margin-bottom: 5px;
+    padding-left: 5px; /* Add left padding for better positioning */
+
+    .logo {
+      height: 70px; /* Make even larger */
+      max-width: 220px;
+    }
+  }
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: #e0e0e0;
+  margin: 8px 0;
+}
+
+/* Login section container */
+.login-section {
+  padding: 0 16px;
+}
+
+h1 {
+  font-size: 22px;
+  font-weight: 500;
+  color: #000000;
+  margin: 20px 0 15px;
+}
+
+/* Radio button styles - matching exact mockup */
+.radio-group-container {
+  margin-bottom: 20px;
+  
+  ion-radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .radio-option {
+    display: flex;
+    align-items: center;
+    height: 24px;
+    
+    ion-radio {
+      --border-radius: 50%;
+      --border-width: 1px;
+      --border-color: #acacac;
+      --border-color-checked: #0f0f2d;
+      --background-checked: #0f0f2d;
+      width: 20px;
+      height: 20px;
+      margin-right: 12px;
+    }
+    
+    .radio-label {
+      font-size: 15px;
+      color: #333333;
+    }
+  }
+}
+
+/* Form field styles - using standard HTML inputs for better styling control */
+.form-field {
+  margin-bottom: 18px;
+
+  label {
+    display: block;
+    color: #333;
+    font-size: 15px;
+    margin-bottom: 6px;
+  }
+
+  .custom-input {
+    width: 100%;
+    height: 44px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px 12px;
+    font-size: 15px;
+    box-sizing: border-box;
+    background-color: #fff;
+    color: #333;
+    font-family: 'Roboto', sans-serif;
+  }
+}
+
+/* Remember me and forgot password row */
+.remember-forgot-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 15px 0 20px;
+
+  .remember-me {
+    display: flex;
+    align-items: center;
+
+    ion-checkbox {
+      --border-radius: 2px;
+      --border-color: #acacac;
+      --border-color-checked: #0f0f2d;
+      --background-checked: #0f0f2d;
+      --checkmark-color: white;
+      --size: 16px;
+      margin-right: 8px;
+    }
+
+    span {
+      font-size: 14px;
+      color: #333;
+    }
+  }
+
+  .forgot-password {
+    color: #0f0f2d;
+    font-size: 14px;
+    text-decoration: none;
+  }
+}
+
+/* Button styles - using standard HTML buttons for better styling control */
+.login-button {
+  display: block;
+  width: 100%;
+  height: 46px;
+  background-color: #0f0f2d;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 15px;
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+}
+
+.signup-button {
+  display: block;
+  width: 100%;
+  height: 46px;
+  background-color: white;
+  color: #0f0f2d;
+  border: 1px solid #0f0f2d;
+  border-radius: 4px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+}

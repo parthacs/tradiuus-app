@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 80">
   <style>
-    .logo-square { fill: #0f0f2d; }
-    .logo-lines { stroke: white; stroke-width: 2; }
-    .logo-circles { fill: none; stroke: white; stroke-width: 2; }
+    .logo-square { fill: white; }
+    .logo-lines { stroke: #0f0f2d; stroke-width: 2; }
+    .logo-circles { fill: none; stroke: #0f0f2d; stroke-width: 2; }
     .yellow-center { fill: #FFDD00; }
-    .logo-text { fill: #0f0f2d; font-family: Arial, sans-serif; font-weight: bold; font-size: 22px; }
+    .logo-text { fill: white; font-family: Arial, sans-serif; font-weight: bold; font-size: 22px; }
   </style>
   
   <!-- Logo square -->
