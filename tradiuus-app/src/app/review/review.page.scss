@@ -1,0 +1,118 @@
+// Logo styling
+.logo {
+  padding: 5px 0;
+  img {
+    height: 30px;
+  }
+}
+
+// Page title
+.page-title {
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+// Contractor card styling
+.contractor-card {
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.contractor-info {
+  display: flex;
+  align-items: flex-start;
+}
+
+.avatar-col {
+  flex: 0 0 60px;
+  text-align: center;
+  margin-right: 10px;
+  
+  ion-avatar {
+    margin: 0 auto;
+    width: 50px;
+    height: 50px;
+    border: 2px solid #eee;
+  }
+  
+  .contractor-name {
+    margin-top: 5px;
+    font-weight: 500;
+    font-size: 14px;
+  }
+}
+
+.details-col {
+  flex: 1;
+  
+  .company-name {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 5px 0;
+  }
+  
+  .job-id, .description, .contact-info, .booking-info, .status-info {
+    margin: 3px 0;
+    font-size: 14px;
+    color: #666;
+  }
+  
+  ion-icon {
+    vertical-align: middle;
+  }
+}
+
+.status-col {
+  flex: 0 0 40px;
+  text-align: right;
+  
+  .status-icon {
+    font-size: 32px;
+  }
+}
+
+// Rating section
+.rating-section {
+  h2 {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 20px 0 10px;
+  }
+}
+
+.star-rating {
+  display: flex;
+  align-items: center;
+  
+  ion-icon {
+    font-size: 24px;
+    margin-left: 2px;
+  }
+}
+
+// Feedback section
+.feedback-section {
+  margin: 20px 0;
+  
+  ion-textarea {
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    margin-top: 10px;
+    --padding-start: 12px;
+    --padding-end: 12px;
+    --padding-top: 12px;
+    --padding-bottom: 12px;
+  }
+}
+
+// Submit button
+.submit-button {
+  margin-top: 20px;
+  --border-radius: 8px;
+  --background: #151c48;
+  font-weight: 500;
+  height: 50px;
+  font-size: 16px;
+}

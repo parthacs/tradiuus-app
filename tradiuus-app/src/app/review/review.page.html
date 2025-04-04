@@ -1,0 +1,110 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">
+      <div class="logo">
+        <img src="assets/icon/tradiuus-logo.svg" alt="TRADIUUS">
+      </div>
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <h1 class="page-title">Review</h1>
+  
+  <ion-card class="contractor-card">
+    <ion-card-content>
+      <div class="contractor-info">
+        <div class="avatar-col">
+          <ion-avatar>
+            <img src="assets/icon/profile.svg" alt="Profile">
+          </ion-avatar>
+          <p class="contractor-name">Dave</p>
+        </div>
+        <div class="details-col">
+          <h2 class="company-name">{{ contractor.company }}</h2>
+          <p class="job-id">Job ID: {{ contractor.jobId }}</p>
+          <p class="description">{{ contractor.description }}</p>
+          <p class="contact-info">
+            {{ contractor.phone }} | {{ contractor.price }} |
+            <ion-icon name="star" color="warning"></ion-icon> {{ contractor.rating }}
+          </p>
+          <p class="booking-info">Booked: {{ contractor.bookedDate }}</p>
+          <p class="status-info">Work Status: {{ contractor.workStatus }}</p>
+        </div>
+        <div class="status-col">
+          <ion-icon name="checkmark-circle" color="success" class="status-icon"></ion-icon>
+        </div>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <div class="rating-section">
+    <h2>Please rate this contractor</h2>
+    
+    <ion-list>
+      <ion-item lines="full">
+        <ion-label>Overall</ion-label>
+        <div class="star-rating">
+          <ion-icon *ngFor="let num of [1, 2, 3, 4, 5]" 
+                   [name]="ratings.overall >= num ? 'star' : 'star-outline'" 
+                   [color]="ratings.overall >= num ? 'warning' : 'medium'"
+                   (click)="rateCategory('overall', num)"></ion-icon>
+        </div>
+      </ion-item>
+      <ion-item lines="full">
+        <ion-label>Price</ion-label>
+        <div class="star-rating">
+          <ion-icon *ngFor="let num of [1, 2, 3, 4, 5]" 
+                   [name]="ratings.price >= num ? 'star' : 'star-outline'" 
+                   [color]="ratings.price >= num ? 'warning' : 'medium'"
+                   (click)="rateCategory('price', num)"></ion-icon>
+        </div>
+      </ion-item>
+      <ion-item lines="full">
+        <ion-label>Quality</ion-label>
+        <div class="star-rating">
+          <ion-icon *ngFor="let num of [1, 2, 3, 4, 5]" 
+                   [name]="ratings.quality >= num ? 'star' : 'star-outline'" 
+                   [color]="ratings.quality >= num ? 'warning' : 'medium'"
+                   (click)="rateCategory('quality', num)"></ion-icon>
+        </div>
+      </ion-item>
+      <ion-item lines="full">
+        <ion-label>Timeliness</ion-label>
+        <div class="star-rating">
+          <ion-icon *ngFor="let num of [1, 2, 3, 4, 5]" 
+                   [name]="ratings.timeliness >= num ? 'star' : 'star-outline'" 
+                   [color]="ratings.timeliness >= num ? 'warning' : 'medium'"
+                   (click)="rateCategory('timeliness', num)"></ion-icon>
+        </div>
+      </ion-item>
+      <ion-item lines="full">
+        <ion-label>Professionalism</ion-label>
+        <div class="star-rating">
+          <ion-icon *ngFor="let num of [1, 2, 3, 4, 5]" 
+                   [name]="ratings.professionalism >= num ? 'star' : 'star-outline'" 
+                   [color]="ratings.professionalism >= num ? 'warning' : 'medium'"
+                   (click)="rateCategory('professionalism', num)"></ion-icon>
+        </div>
+      </ion-item>
+    </ion-list>
+    
+    <div class="feedback-section">
+      <h2>Please share your valuable thoughts about the contractor</h2>
+      <ion-textarea 
+        placeholder="Write your review here" 
+        rows="6" 
+        [(ngModel)]="feedback"></ion-textarea>
+    </div>
+    
+    <ion-button expand="block" color="primary" class="submit-button" (click)="submitReview()">
+      Submit
+    </ion-button>
+  </div>
+</ion-content>

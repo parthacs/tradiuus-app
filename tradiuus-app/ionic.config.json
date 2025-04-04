@@ -1,0 +1,7 @@
+{
+  "name": "tradiuus-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
