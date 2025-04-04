@@ -68,6 +68,6 @@ export class LoginPage implements OnInit {
   }
 
   signUp() {
-    console.log('Sign up clicked');
+    this.router.navigate(['/signup']);
   }
 }

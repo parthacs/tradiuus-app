@@ -1,0 +1,80 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/login" text=""></ion-back-button>
+    </ion-buttons>
+    <div class="logo-container">
+      <img src="assets/icon/tradiuus-logo.svg" alt="TRADIUUS" class="logo" onerror="this.src='assets/icon/favicon.png'">
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="divider"></div>
+  
+  <!-- Signup Form section -->
+  <div class="signup-section">
+    <h1>Sign Up as</h1>
+
+    <!-- Radio button options with circular radio buttons -->
+    <div class="radio-group-container">
+      <ion-radio-group [(ngModel)]="userType">
+        <div class="radio-option">
+          <ion-radio mode="md" value="customer"></ion-radio>
+          <span class="radio-label">Customer</span>
+        </div>
+        
+        <div class="radio-option">
+          <ion-radio mode="md" value="contractor"></ion-radio>
+          <span class="radio-label">Contractor Admin</span>
+        </div>
+      </ion-radio-group>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Signup form with standard inputs -->
+    <form (ngSubmit)="signup()" [formGroup]="signupForm">
+      <!-- Name field -->
+      <div class="form-field">
+        <label>Name</label>
+        <input type="text" formControlName="name" class="custom-input">
+      </div>
+
+      <!-- Email field -->
+      <div class="form-field">
+        <label>Email ID</label>
+        <input type="email" formControlName="email" class="custom-input">
+      </div>
+
+      <!-- Mobile Number field -->
+      <div class="form-field">
+        <label>Mobile Number</label>
+        <input type="tel" formControlName="mobile" class="custom-input">
+      </div>
+
+      <!-- ZIP Code field -->
+      <div class="form-field">
+        <label>ZIP Code</label>
+        <input type="text" formControlName="zipCode" class="custom-input">
+      </div>
+
+      <!-- Password field -->
+      <div class="form-field">
+        <label>Password</label>
+        <input type="password" formControlName="password" class="custom-input">
+      </div>
+
+      <!-- Confirm Password field -->
+      <div class="form-field">
+        <label>Confirm Password</label>
+        <input type="password" formControlName="confirmPassword" class="custom-input">
+      </div>
+
+      <!-- Sign up button -->
+      <button type="submit" class="signup-button-primary">
+        Sign Up
+      </button>
+    </form>
+  </div>
+</ion-content>
