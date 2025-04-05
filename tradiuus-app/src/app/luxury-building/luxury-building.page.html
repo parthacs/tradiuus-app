@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <div class="logo-container">
+      <img src="assets/icon/tradiuus-logo-white.svg" alt="TRADIUUS" class="logo">
+      TRADIUUS
+    </div>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="page-title">
+    <h1>Luxury Buildings</h1>
+  </div>
+
+  <div class="service-buttons">
+    <ion-button expand="block" color="primary" class="emergency-btn" (click)="requestEmergencyService()">
+      Emergency Service
+    </ion-button>
+    <ion-button expand="block" fill="outline" class="estimate-btn" (click)="requestEstimateService()">
+      Estimate Service
+    </ion-button>
+  </div>
+
+  <div class="buildings-list">
+    <div class="building-card" *ngFor="let building of buildings">
+      <div class="building-info">
+        <h2>{{ building.name }}</h2>
+        <p class="description">{{ building.description }}</p>
+        <p class="address">{{ building.address }}</p>
+        <p class="location">{{ building.city }}, {{ building.state }} {{ building.zip }}</p>
+        <p class="email">{{ building.email }}</p>
+      </div>
+      <div class="action-buttons">
+        <ion-button fill="clear" color="primary" class="edit-btn" (click)="editBuilding(building)">
+          EDIT
+        </ion-button>
+        <ion-button fill="clear" color="danger" class="delete-btn" (click)="deleteBuilding(building)">
+          DELETE
+        </ion-button>
+      </div>
+    </div>
+  </div>
+
+  <ion-button expand="block" color="primary" class="add-building-btn" (click)="addBuilding()">
+    Add Luxury Building
+  </ion-button>
+</ion-content> 
