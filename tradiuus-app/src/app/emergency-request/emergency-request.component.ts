@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { MenuController } from '@ionic/angular';
+import { CommonModule } from '@angular/common';
+import { IonicModule } from '@ionic/angular';
 
 interface EmergencyRequest {
   jobId: string;
@@ -31,7 +31,8 @@ interface EmergencyRequest {
   selector: 'app-emergency-request',
   templateUrl: './emergency-request.component.html',
   styleUrls: ['./emergency-request.component.scss'],
-  standalone: false
+  standalone: true,
+  imports: [CommonModule, IonicModule]
 })
 export class EmergencyRequestComponent implements OnInit {
   request: EmergencyRequest = {
@@ -63,19 +64,7 @@ export class EmergencyRequestComponent implements OnInit {
     ]
   };
 
-  constructor(
-    private router: Router,
-    private menuController: MenuController
-  ) { }
+  constructor() { }
 
-  ngOnInit() {
-  }
-
-  goBack() {
-    this.router.navigate(['/']);
-  }
-
-  openMenu() {
-    this.menuController.toggle();
-  }
+  ngOnInit() { }
 } 

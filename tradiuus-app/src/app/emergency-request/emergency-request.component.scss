@@ -1,11 +1,14 @@
 :host {
   --page-margin: 16px;
   --header-height: 56px;
+  --primary-color: #1a1a4b;
+  --success-color: #2ecc71;
+  --error-color: #ff4646;
 }
 
 ion-header {
   ion-toolbar {
-    --background: #1a1a4b;
+    --background: var(--primary-color);
     --color: white;
     --border-style: none;
     --min-height: var(--header-height);
@@ -14,31 +17,25 @@ ion-header {
 
     ion-buttons {
       margin: 0;
-
-      ion-button {
-        --padding-start: 8px;
-        --padding-end: 8px;
-        --color: white;
-        height: var(--header-height);
-        
-        ion-icon {
-          font-size: 24px;
-          font-weight: 400;
-        }
-      }
     }
-  }
 
-  .logo-container {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    height: var(--header-height);
-    padding-left: 4px;
-    
-    .logo {
-      height: 28px;
-      width: auto;
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      height: var(--header-height);
+      padding-left: 4px;
+      
+      .logo {
+        height: 28px;
+        width: auto;
+      }
+
+      span {
+        color: white;
+        font-size: 18px;
+        font-weight: 500;
+      }
     }
   }
 }
@@ -52,14 +49,12 @@ ion-header {
   gap: 12px;
 
   ion-icon {
-    font-size: 28px;
-    --ionicon-stroke-width: 32px;
+    font-size: 24px;
   }
 
   span {
     font-size: 16px;
     font-weight: 500;
-    line-height: 1.2;
   }
 }
 
@@ -83,13 +78,11 @@ ion-header {
         height: 48px;
         border-radius: 50%;
         object-fit: cover;
-        border: 1px solid #e0e0e0;
       }
 
       .name {
         font-size: 14px;
         color: #333;
-        font-weight: 500;
       }
     }
 
@@ -97,66 +90,42 @@ ion-header {
       flex: 1;
 
       h2 {
-        font-size: 18px;
+        font-size: 16px;
         font-weight: 600;
-        margin: 0 0 12px;
         color: #333;
+        margin: 0 0 8px;
       }
 
-      .job-meta {
-        p {
-          margin: 4px 0;
-          color: #666;
-          font-size: 14px;
-        }
+      p {
+        margin: 4px 0;
+        color: #666;
+        font-size: 14px;
+      }
 
-        .contact-row {
-          display: flex;
+      .contact-info {
+        margin: 8px 0;
+        
+        .rating {
+          display: inline-flex;
           align-items: center;
-          gap: 12px;
-          margin: 8px 0;
+          gap: 4px;
 
-          .phone {
-            color: #666;
+          ion-icon {
+            color: #ffc107;
+            font-size: 16px;
           }
-
-          .price {
-            color: #1a1a4b;
-            font-weight: 600;
-          }
-
-          .rating {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-
-            ion-icon {
-              color: #ffc107;
-              font-size: 16px;
-            }
-
-            span {
-              color: #666;
-              font-size: 14px;
-            }
-          }
-        }
-
-        .booking {
-          color: #666;
-          font-style: italic;
         }
       }
     }
 
-    .status-check {
+    .status-icon {
       position: absolute;
       top: 0;
       right: 0;
 
-      .success-icon {
+      ion-icon {
         font-size: 24px;
-        color: #2ecc71;
+        color: var(--success-color);
       }
     }
   }
@@ -167,8 +136,8 @@ ion-header {
     border-bottom: 1px solid #eee;
 
     &:last-child {
-      border-bottom: none;
       margin-bottom: 0;
+      border-bottom: none;
     }
 
     h3 {
@@ -178,59 +147,45 @@ ion-header {
       margin: 0 0 12px;
     }
 
-    &.address {
-      p {
-        margin: 4px 0;
-        color: #666;
+    p {
+      margin: 4px 0;
+      color: #666;
+      font-size: 14px;
+    }
+
+    .requirement-item {
+      margin-bottom: 16px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      h4 {
         font-size: 14px;
+        font-weight: 600;
+        color: #333;
+        margin: 0 0 4px;
       }
 
-      .building-type {
-        margin-top: 8px;
-        font-style: italic;
-      }
-    }
-
-    &.requirements {
-      .requirement-item {
-        margin-bottom: 16px;
-
-        &:last-child {
-          margin-bottom: 0;
-        }
-
-        h4 {
-          font-size: 14px;
-          font-weight: 600;
-          color: #333;
-          margin: 0 0 4px;
-        }
-
-        p {
-          margin: 0;
-          color: #666;
-          font-size: 14px;
-        }
+      p {
+        margin: 0;
       }
     }
 
-    &.images {
-      .image-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 8px;
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
 
-        .image-item {
-          aspect-ratio: 1;
-          border-radius: 8px;
-          overflow: hidden;
-          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      .image-item {
+        aspect-ratio: 1;
+        border-radius: 8px;
+        overflow: hidden;
 
-          img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-          }
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
         }
       }
     }

@@ -1,24 +1,21 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-button (click)="goBack()">
-        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
-      </ion-button>
+      <ion-back-button></ion-back-button>
     </ion-buttons>
     <div class="logo-container">
       <img src="assets/icon/tradiuus-logo.png" alt="TRADIUUS" class="logo">
+      <span>TRADIUUS</span>
     </div>
     <ion-buttons slot="end">
-      <ion-button (click)="openMenu()">
-        <ion-icon slot="icon-only" name="menu-outline"></ion-icon>
-      </ion-button>
+      <ion-menu-button></ion-menu-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <div class="emergency-banner">
-    <ion-icon name="alert-circle"></ion-icon>
+    <ion-icon name="warning-outline"></ion-icon>
     <span>Emergency requests</span>
   </div>
 
@@ -30,33 +27,31 @@
       </div>
       <div class="job-details">
         <h2>{{ request.title }}</h2>
-        <div class="job-meta">
-          <p class="job-id">Job ID: {{ request.jobId }}</p>
-          <p class="poster">Poster By: {{ request.posterName }}</p>
-          <p class="contact-row">
-            <span class="phone">{{ request.posterContact }}</span>
-            <span class="price">${{ request.price }}</span>
-            <span class="rating">
-              <ion-icon name="star" color="warning"></ion-icon>
-              <span>{{ request.rating }}</span>
-            </span>
-          </p>
-          <p class="booking">Booked: {{ request.bookedDate | date:'dd MMM yy' }} at {{ request.bookedDate | date:'h:mm a' }}</p>
-        </div>
+        <p class="job-id">Job ID: {{ request.jobId }}</p>
+        <p class="poster">Poster By: {{ request.posterName }}</p>
+        <p class="contact-info">
+          {{ request.posterContact }} | ${{ request.price }} | 
+          <span class="rating">
+            <ion-icon name="star"></ion-icon>
+            {{ request.rating }}
+          </span>
+        </p>
+        <p class="booking">Booked: {{ request.bookedDate | date:'dd MMM yy' }} at {{ request.bookedDate | date:'h:mm a' }}</p>
+        <p class="work-status">Work Status:</p>
       </div>
-      <div class="status-check">
-        <ion-icon name="checkmark-circle" class="success-icon"></ion-icon>
+      <div class="status-icon">
+        <ion-icon name="checkmark-circle"></ion-icon>
       </div>
     </div>
 
-    <div class="section address">
+    <div class="section">
       <h3>Address</h3>
-      <p class="street">{{ request.address.street }}</p>
-      <p class="city-state">{{ request.address.city }}, {{ request.address.state }} {{ request.address.zip }}</p>
-      <p class="building-type">Building Type: {{ request.address.buildingType }}</p>
+      <p>{{ request.address.street }}</p>
+      <p>{{ request.address.city }}, {{ request.address.state }} {{ request.address.zip }}</p>
+      <p>Building Type: {{ request.address.buildingType }}</p>
     </div>
 
-    <div class="section requirements">
+    <div class="section">
       <h3>Requirement Details</h3>
       <div class="requirement-item">
         <h4>Problem</h4>
@@ -72,7 +67,7 @@
       </div>
     </div>
 
-    <div class="section images">
+    <div class="section">
       <h3>Images</h3>
       <div class="image-grid">
         <div class="image-item" *ngFor="let image of request.images">
