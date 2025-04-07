@@ -27,6 +27,10 @@ const routes: Routes = [
     path: 'luxury-building',
     loadChildren: () => import('./luxury-building/luxury-building.module').then( m => m.LuxuryBuildingModule)
   },
+  {
+    path: 'emergency-request',
+    loadChildren: () => import('./emergency-request/emergency-request.module').then( m => m.EmergencyRequestModule)
+  }
 ];
 
 @NgModule({
