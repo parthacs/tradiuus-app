@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <div class="logo-container">
+      <img src="assets/images/tradiuus-logo.png" alt="TRADIUUS" class="logo">
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="services-container">
+    <h1 class="title">My Services</h1>
+    
+    <div class="services-list">
+      <ion-item *ngFor="let service of services" 
+                lines="full" 
+                detail="true" 
+                (click)="navigateToService(service.route)">
+        <ion-icon [name]="service.icon" slot="start"></ion-icon>
+        <ion-label>{{ service.title }}</ion-label>
+      </ion-item>
+    </div>
+  </div>
+</ion-content> 
