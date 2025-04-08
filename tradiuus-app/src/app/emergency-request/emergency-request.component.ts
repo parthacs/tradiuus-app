@@ -3,28 +3,18 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 
 interface EmergencyRequest {
-  jobId: string;
+  id: string;
   title: string;
+  jobId: string;
+  userName: string;
+  profileImage: string;
   posterName: string;
-  posterContact: string;
+  contact: string;
   price: number;
   rating: number;
   bookedDate: Date;
   workStatus: string;
-  address: {
-    street: string;
-    city: string;
-    state: string;
-    zip: string;
-    buildingType: string;
-  };
-  requirement: {
-    problem: string;
-    location: string;
-    additionalQuestion: string;
-    additionalAnswer: string;
-  };
-  images: string[];
+  status: 'approved' | 'rejected' | 'pending';
 }
 
 @Component({
@@ -35,36 +25,65 @@ interface EmergencyRequest {
   imports: [CommonModule, IonicModule]
 })
 export class EmergencyRequestComponent implements OnInit {
-  request: EmergencyRequest = {
-    jobId: '12356896',
-    title: 'Plumber for water leak',
-    posterName: 'Roger Brook',
-    posterContact: '(505)569-8521',
-    price: 300,
-    rating: 4,
-    bookedDate: new Date('2024-12-12T15:35:00'),
-    workStatus: '',
-    address: {
-      street: '3775 Mount Tabor',
-      city: 'New York',
-      state: 'NY',
-      zip: '10007',
-      buildingType: 'Condo Walk Up'
+  requests: EmergencyRequest[] = [
+    {
+      id: '1',
+      title: 'Plumber for water leak',
+      jobId: '12356896',
+      userName: 'Dave',
+      profileImage: 'assets/images/dave.jpg',
+      posterName: 'Roger Brook',
+      contact: '(505)569-8521',
+      price: 300,
+      rating: 4,
+      bookedDate: new Date('2024-12-24T15:35:00'),
+      workStatus: '',
+      status: 'approved'
     },
-    requirement: {
-      problem: 'Clogged drain',
-      location: 'In the kitchen sink',
-      additionalQuestion: 'Another question?',
-      additionalAnswer: 'Another answer'
+    {
+      id: '2',
+      title: 'Plumber for broken faucet',
+      jobId: '12356896',
+      userName: 'Dave',
+      profileImage: 'assets/images/dave.jpg',
+      posterName: 'Roger Brook',
+      contact: '(505)569-8521',
+      price: 300,
+      rating: 4,
+      bookedDate: new Date('2024-12-24T15:35:00'),
+      workStatus: '',
+      status: 'rejected'
     },
-    images: [
-      'assets/images/plumbing1.jpg',
-      'assets/images/plumbing2.jpg',
-      'assets/images/plumbing3.jpg'
-    ]
-  };
+    {
+      id: '3',
+      title: 'Plumbing job',
+      jobId: '12356896',
+      userName: 'Dave',
+      profileImage: 'assets/images/dave.jpg',
+      posterName: 'Roger Brook',
+      contact: '(505)569-8521',
+      price: 300,
+      rating: 4,
+      bookedDate: new Date('2024-12-24T15:35:00'),
+      workStatus: '',
+      status: 'pending'
+    }
+  ];
 
   constructor() { }
 
-  ngOnInit() { }
+  ngOnInit(): void { }
+
+  getStatusIcon(status: string): string {
+    switch (status) {
+      case 'approved':
+        return 'checkmark-circle';
+      case 'rejected':
+        return 'close-circle';
+      case 'pending':
+        return 'call';
+      default:
+        return 'checkmark-circle';
+    }
+  }
 } 

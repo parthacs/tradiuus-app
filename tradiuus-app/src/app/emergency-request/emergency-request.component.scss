@@ -4,6 +4,7 @@
   --primary-color: #1a1a4b;
   --success-color: #2ecc71;
   --error-color: #ff4646;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 }
 
 ion-header {
@@ -17,24 +18,28 @@ ion-header {
 
     ion-buttons {
       margin: 0;
+
+      ion-button {
+        --padding-start: 12px;
+        --padding-end: 12px;
+        height: var(--header-height);
+
+        ion-icon {
+          font-size: 24px;
+          color: white;
+        }
+      }
     }
 
     .logo-container {
       display: flex;
       align-items: center;
-      gap: 8px;
+      justify-content: center;
       height: var(--header-height);
-      padding-left: 4px;
       
       .logo {
-        height: 28px;
+        height: 24px;
         width: auto;
-      }
-
-      span {
-        color: white;
-        font-size: 18px;
-        font-weight: 500;
       }
     }
   }
@@ -50,6 +55,7 @@ ion-header {
 
   ion-icon {
     font-size: 24px;
+    color: white;
   }
 
   span {
@@ -58,134 +64,101 @@ ion-header {
   }
 }
 
-.request-details {
+.requests-list {
   padding: var(--page-margin);
+  background-color: #f8f9fa;
 
-  .user-info {
-    display: flex;
-    gap: 16px;
-    margin-bottom: 24px;
-    position: relative;
-
-    .profile-section {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 4px;
-
-      .profile-image {
-        width: 48px;
-        height: 48px;
-        border-radius: 50%;
-        object-fit: cover;
-      }
-
-      .name {
-        font-size: 14px;
-        color: #333;
-      }
-    }
-
-    .job-details {
-      flex: 1;
-
-      h2 {
-        font-size: 16px;
-        font-weight: 600;
-        color: #333;
-        margin: 0 0 8px;
-      }
-
-      p {
-        margin: 4px 0;
-        color: #666;
-        font-size: 14px;
-      }
-
-      .contact-info {
-        margin: 8px 0;
-        
-        .rating {
-          display: inline-flex;
-          align-items: center;
-          gap: 4px;
-
-          ion-icon {
-            color: #ffc107;
-            font-size: 16px;
-          }
-        }
-      }
-    }
-
-    .status-icon {
-      position: absolute;
-      top: 0;
-      right: 0;
-
-      ion-icon {
-        font-size: 24px;
-        color: var(--success-color);
-      }
-    }
-  }
-
-  .section {
-    margin-bottom: 24px;
-    padding-bottom: 16px;
-    border-bottom: 1px solid #eee;
+  .request-item {
+    background-color: white;
+    margin-bottom: 16px;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 
     &:last-child {
       margin-bottom: 0;
-      border-bottom: none;
     }
 
-    h3 {
-      font-size: 16px;
-      font-weight: 600;
-      color: #333;
-      margin: 0 0 12px;
-    }
+    .user-info {
+      display: flex;
+      gap: 16px;
+      position: relative;
 
-    p {
-      margin: 4px 0;
-      color: #666;
-      font-size: 14px;
-    }
+      .profile-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
 
-    .requirement-item {
-      margin-bottom: 16px;
-
-      &:last-child {
-        margin-bottom: 0;
-      }
-
-      h4 {
-        font-size: 14px;
-        font-weight: 600;
-        color: #333;
-        margin: 0 0 4px;
-      }
-
-      p {
-        margin: 0;
-      }
-    }
-
-    .image-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 8px;
-
-      .image-item {
-        aspect-ratio: 1;
-        border-radius: 8px;
-        overflow: hidden;
-
-        img {
-          width: 100%;
-          height: 100%;
+        .profile-image {
+          width: 48px;
+          height: 48px;
+          border-radius: 50%;
           object-fit: cover;
+        }
+
+        .name {
+          font-size: 13px;
+          color: #333;
+          font-weight: 500;
+        }
+      }
+
+      .job-details {
+        flex: 1;
+
+        h2 {
+          font-size: 16px;
+          font-weight: 600;
+          color: #333;
+          margin: 0 0 8px;
+        }
+
+        p {
+          margin: 4px 0;
+          color: #666;
+          font-size: 14px;
+          line-height: 1.4;
+        }
+
+        .contact-info {
+          margin: 8px 0;
+          display: flex;
+          align-items: center;
+          gap: 4px;
+          
+          .star-icon {
+            color: #ffc107;
+            font-size: 16px;
+            margin: 0 2px;
+          }
+        }
+
+        .work-status {
+          color: #757575;
+          font-style: italic;
+        }
+      }
+
+      .status-icon {
+        position: absolute;
+        top: 0;
+        right: 0;
+
+        ion-icon {
+          font-size: 28px;
+        }
+
+        &.success ion-icon {
+          color: #2ecc71;
+        }
+
+        &.rejected ion-icon {
+          color: #ff4646;
+        }
+
+        &.pending ion-icon {
+          color: #757575;
         }
       }
     }
