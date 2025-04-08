@@ -46,6 +46,10 @@ const routes: Routes = [
   {
     path: 'my-services',
     loadChildren: () => import('./my-services/my-services.module').then(m => m.MyServicesModule)
+  },
+  {
+    path: 'edit-trade',
+    loadChildren: () => import('./edit-trade/edit-trade.module').then(m => m.EditTradeModule)
   }
 ];
 
