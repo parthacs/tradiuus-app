@@ -50,6 +50,14 @@ const routes: Routes = [
   {
     path: 'edit-trade',
     loadChildren: () => import('./edit-trade/edit-trade.module').then(m => m.EditTradeModule)
+  },
+  {
+    path: 'emergency-request-time',
+    loadChildren: () => import('./emergency-request-time/emergency-request-time.module').then(m => m.EmergencyRequestTimeModule)
+  },
+  {
+    path: 'estimate-response-time',
+    loadChildren: () => import('./estimate-response-time/estimate-response-time.module').then(m => m.EstimateResponseTimeModule)
   }
 ];
 
