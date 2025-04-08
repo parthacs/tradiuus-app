@@ -34,6 +34,14 @@ const routes: Routes = [
   {
     path: 'emergency-request',
     loadChildren: () => import('./emergency-request/emergency-request.module').then( m => m.EmergencyRequestModule)
+  },
+  {
+    path: 'emergency-details',
+    loadChildren: () => import('./emergency-details/emergency-details.module').then(m => m.EmergencyDetailsModule)
+  },
+  {
+    path: 'estimate-details',
+    loadChildren: () => import('./estimate-details').then(m => m.EstimateDetailsModule)
   }
 ];
 
