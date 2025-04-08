@@ -58,6 +58,10 @@ const routes: Routes = [
   {
     path: 'estimate-response-time',
     loadChildren: () => import('./estimate-response-time/estimate-response-time.module').then(m => m.EstimateResponseTimeModule)
+  },
+  {
+    path: 'edit-trade-price-time',
+    loadChildren: () => import('./edit-trade-price-time/edit-trade-price-time.module').then(m => m.EditTradePriceTimeModule)
   }
 ];
 

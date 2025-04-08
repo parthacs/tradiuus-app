@@ -1,0 +1,103 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button icon="arrow-back"></ion-back-button>
+    </ion-buttons>
+    <div class="logo-container">
+      <img src="assets/images/tradiuus-icon.png" alt="Tradiuus" class="logo">
+      <span class="logo-text">TRADIUUS</span>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="edit-trade-container">
+    <h1 class="page-title">Edit Electrician</h1>
+
+    <div class="tab-container">
+      <div class="tab" [class.active]="selectedTab === 'emergency'" (click)="switchTab('emergency')">
+        Emergency Service
+      </div>
+      <div class="tab" [class.active]="selectedTab === 'estimate'" (click)="switchTab('estimate')">
+        Estimate Service
+      </div>
+    </div>
+
+    <div class="services-grid">
+      <div class="grid-header">
+        <div class="col-service">Services</div>
+        <div class="col-price">Price Range</div>
+        <div class="col-time">Job Time</div>
+      </div>
+
+      <div class="service-row" *ngFor="let service of services">
+        <div class="col-service">
+          <ion-checkbox [(ngModel)]="service.selected" labelPlacement="end">
+            {{ service.name }}
+          </ion-checkbox>
+        </div>
+        <div class="col-price">
+          {{ formatPrice(service.minPrice, service.maxPrice) }}
+          <span class="edit-link" (click)="openEditModal(service, 'price')">EDIT</span>
+        </div>
+        <div class="col-time">
+          {{ formatTime(service.hours, service.minutes) }}
+          <span class="edit-link" (click)="openEditModal(service, 'time')">EDIT</span>
+        </div>
+      </div>
+    </div>
+
+    <ion-button expand="block" class="update-button">
+      Update
+    </ion-button>
+  </div>
+</ion-content>
+
+<!-- Edit Modal -->
+<ion-modal [isOpen]="showModal" [initialBreakpoint]="1" [breakpoints]="[0, 1]" class="edit-modal">
+  <ng-template>
+    <div class="modal-header">
+      <div class="close-container">
+        <ion-button fill="clear" class="close-button" (click)="closeModal()">
+          <ion-icon name="close" slot="icon-only"></ion-icon>
+        </ion-button>
+      </div>
+      
+      <div class="modal-content" *ngIf="selectedService">
+        <h2>{{ selectedService.name }}</h2>
+        
+        <div class="price-range">
+          <h3>Price Range</h3>
+          <div class="input-group">
+            <div class="input-wrapper">
+              <span class="currency">$</span>
+              <input type="number" [(ngModel)]="selectedService.minPrice">
+            </div>
+            <div class="input-wrapper">
+              <span class="currency">$</span>
+              <input type="number" [(ngModel)]="selectedService.maxPrice">
+            </div>
+          </div>
+        </div>
+
+        <div class="job-time">
+          <h3>Job Time</h3>
+          <div class="input-group">
+            <div class="input-wrapper">
+              <input type="number" [(ngModel)]="selectedService.hours">
+              <span class="unit">Hr</span>
+            </div>
+            <div class="input-wrapper">
+              <input type="number" [(ngModel)]="selectedService.minutes">
+              <span class="unit">Min</span>
+            </div>
+          </div>
+        </div>
+
+        <ion-button expand="block" class="update-button" (click)="updateService()">
+          Update
+        </ion-button>
+      </div>
+    </div>
+  </ng-template>
+</ion-modal> 
