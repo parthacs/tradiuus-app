@@ -8,6 +8,7 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { EmergencyRequestModule } from './emergency-request/emergency-request.module';
+import { PaymentFailModule } from './payment-fail/payment-fail.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,6 +17,7 @@ import { EmergencyRequestModule } from './emergency-request/emergency-request.mo
     IonicModule.forRoot(),
     AppRoutingModule,
     FormsModule,
+    PaymentFailModule,
     ReactiveFormsModule,
     EmergencyRequestModule
   ],

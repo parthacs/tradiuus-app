@@ -62,6 +62,14 @@ const routes: Routes = [
   {
     path: 'edit-trade-price-time',
     loadChildren: () => import('./edit-trade-price-time/edit-trade-price-time.module').then(m => m.EditTradePriceTimeModule)
+  },
+  {
+    path: 'payment-fail',
+    loadChildren: () => import('./payment-fail/payment-fail.module').then(m => m.PaymentFailModule)
+  },
+  {
+    path: 'payment-success',
+    loadComponent: () => import('./payment-success/payment-success.component').then(m => m.PaymentSuccessComponent)
   }
 ];
 

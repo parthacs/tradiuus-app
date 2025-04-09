@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Payment Error</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="payment-fail-container">
+    <div class="icon-container">
+      <ion-icon name="alert-circle" class="error-icon"></ion-icon>
+    </div>
+    <h1>Payment Failed</h1>
+    <p>We couldn't process your payment method.</p>
+    <div class="error-message">
+      <p>Something went wrong with your payment.</p>
+    </div>
+    <h2>Common reasons for payment failures:</h2>
+    <ul>
+      <li>Insufficient funds in the account</li>
+      <li>Card expired or invalid card details</li>
+      <li>The transaction was flagged by fraud systems</li>
+      <li>Technical issue with the payment processor</li>
+    </ul>
+    <ion-button expand="block" (click)="tryAgain()">Try Again</ion-button>
+    <ion-button expand="block" fill="outline" (click)="contactSupport()">Contact Support</ion-button>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-title>Footer Content</ion-title>
+  </ion-toolbar>
+</ion-footer> 

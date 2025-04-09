@@ -1,0 +1,44 @@
+ion-header {
+  --background: #ffffff;
+  --color: #000000;
+}
+
+.success-icon {
+  text-align: center;
+  font-size: 48px;
+  color: #00c853;
+  margin-bottom: 16px;
+}
+
+h2 {
+  text-align: center;
+  color: #000000;
+  margin-bottom: 8px;
+}
+
+p {
+  text-align: center;
+  color: #666666;
+  margin-bottom: 16px;
+}
+
+.info-box {
+  background-color: #e8f5e9;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.status, .payment-method {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.complete {
+  color: #00c853;
+}
+
+ion-button {
+  margin-top: 8px;
+} 
