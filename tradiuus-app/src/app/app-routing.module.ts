@@ -78,6 +78,14 @@ const routes: Routes = [
   {
     path: 'change-password',
     loadComponent: () => import('./change-password/change-password.component').then(m => m.ChangePasswordComponent)
+  },
+  {
+    path: 'validate-otp',
+    loadComponent: () => import('./validate-otp/validate-otp.component').then(m => m.ValidateOtpComponent)
+  },
+  {
+    path: 'expire-link',
+    loadComponent: () => import('./expire-link/expire-link.component').then(m => m.ExpireLinkComponent)
   }
 ];
 

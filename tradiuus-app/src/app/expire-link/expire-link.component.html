@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <div class="logo-container">
+      <img src="assets/icon/tradiuus-logo.svg" alt="TRADIUUS" class="logo" onerror="this.src='assets/icon/favicon.png'">
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="expire-link-section">
+    <div class="error-icon">
+      <ion-icon name="timer-outline"></ion-icon>
+    </div>
+    
+    <h1>Link Expired</h1>
+    
+    <p>The password reset link you clicked has expired for security reasons.</p>
+    
+    <p>Password reset links are only valid for a limited time to protect your account security.</p>
+    
+    <div class="actions">
+      <button (click)="returnToForgotPassword()" class="primary-button">
+        Request New Link
+      </button>
+      
+      <button (click)="returnToLogin()" class="secondary-button">
+        Return to Login
+      </button>
+    </div>
+  </div>
+</ion-content> 

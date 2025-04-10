@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/login" text=""></ion-back-button>
+    </ion-buttons>
+    <div class="logo-container">
+      <img src="assets/icon/tradiuus-logo.svg" alt="TRADIUUS" class="logo" onerror="this.src='assets/icon/favicon.png'">
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="validate-otp-section">
+    <h1>Enter Verification Code</h1>
+    <p>Please enter the 6-digit code sent to your email.</p>
+
+    <form (ngSubmit)="validateOtp()" [formGroup]="otpForm">
+      <div class="form-field">
+        <label>OTP Code</label>
+        <input
+          type="number"
+          formControlName="otp"
+          class="custom-input"
+          placeholder="Enter OTP"
+          maxlength="6"
+          [readonly]="isExpired">
+      </div>
+
+      <div *ngIf="otpForm.get('otp')?.invalid && (otpForm.get('otp')?.dirty || otpForm.get('otp')?.touched)" class="validation-error">
+        <div *ngIf="otpForm.get('otp')?.errors?.[ 'required']">OTP is required.</div>
+        <div *ngIf="otpForm.get('otp')?.errors?.[ 'minlength'] || otpForm.get('otp')?.errors?.[ 'maxlength']">OTP must be 6 digits long.</div>
+      </div>
+
+      <div class="timer-section" *ngIf="!isExpired">
+        Time left: {{ timeLeft }} seconds
+      </div>
+
+      <div class="message-section">
+        <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+        <div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>
+      </div>
+
+      <button type="submit" class="validate-button-primary" [disabled]="otpForm.invalid || isExpired">
+        Verify Code
+      </button>
+    </form>
+  </div>
+</ion-content> 
