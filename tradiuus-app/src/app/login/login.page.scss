@@ -166,3 +166,22 @@ h1 {
   cursor: pointer;
   font-family: 'Roboto', sans-serif;
 }
+
+.password-input-container {
+  position: relative;
+  width: 100%;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: #666;
+  cursor: pointer;
+}
+
+.custom-input {
+  padding-right: 40px; // Make room for the eye icon
+}

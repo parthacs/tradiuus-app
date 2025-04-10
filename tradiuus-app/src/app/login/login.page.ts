@@ -12,6 +12,7 @@ import { ToastController } from '@ionic/angular';
 export class LoginPage implements OnInit {
   loginForm!: FormGroup;
   userType: string = 'customer';
+  showPassword: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -30,6 +31,10 @@ export class LoginPage implements OnInit {
       password: ['', [Validators.required, Validators.minLength(6)]],
       rememberMe: [false]
     });
+  }
+
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
   }
 
   async login() {
