@@ -86,6 +86,14 @@ const routes: Routes = [
   {
     path: 'expire-link',
     loadComponent: () => import('./expire-link/expire-link.component').then(m => m.ExpireLinkComponent)
+  },
+  {
+    path: 'tutorial',
+    loadComponent: () => import('./tutorial/tutorial.component').then(m => m.TutorialComponent)
+  },
+  {
+    path: 'dashboard',
+    loadComponent: () => import('./dashboard/dashboard.component').then(m => m.DashboardComponent)
   }
 ];
 

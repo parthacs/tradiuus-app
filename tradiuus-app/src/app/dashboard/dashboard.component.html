@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-toolbar>
+    <div class="logo-container">
+      <img src="assets/icon/tradiuus-logo.svg" alt="TRADIUUS" class="logo" onerror="this.src='assets/icon/favicon.png'">
+    </div>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon slot="icon-only" name="person-circle-outline"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon slot="icon-only" name="menu-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="dashboard-container">
+    <!-- Welcome Section -->
+    <section class="welcome-section">
+      <h1>Welcome to Tradiuus</h1>
+      <p>Find contractors in your area</p>
+    </section>
+
+    <!-- Services Grid -->
+    <section class="services-section">
+      <h2>Services</h2>
+      <div class="services-grid">
+        <div *ngFor="let service of services" 
+             class="service-card" 
+             (click)="navigateTo(service.route)">
+          <div class="service-icon">
+            <ion-icon [name]="service.icon"></ion-icon>
+          </div>
+          <h3>{{ service.name }}</h3>
+        </div>
+      </div>
+    </section>
+
+    <!-- Recent Requests -->
+    <section class="recent-requests-section" *ngIf="recentRequests.length > 0">
+      <h2>Recent Requests</h2>
+      <div class="request-list">
+        <div *ngFor="let request of recentRequests" class="request-item">
+          <div class="request-header">
+            <div class="request-type">{{ request.type }}</div>
+            <div class="request-status" [class]="request.status.toLowerCase()">{{ request.status }}</div>
+          </div>
+          <div class="request-details">
+            <div class="service-name">{{ request.service }}</div>
+            <div class="request-date">{{ request.date | date:'mediumDate' }}</div>
+          </div>
+          <div class="contractor-name" *ngIf="request.contractor">
+            {{ request.contractor }}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Help & Support -->
+    <section class="support-section">
+      <h2>Need Help?</h2>
+      <div class="support-card" (click)="navigateTo('/help')">
+        <ion-icon name="help-circle-outline"></ion-icon>
+        <span>View Help & Support</span>
+      </div>
+    </section>
+  </div>
+</ion-content> 

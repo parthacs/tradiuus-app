@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar>
+    <div class="logo-container">
+      <img src="assets/icon/tradiuus-logo.svg" alt="TRADIUUS" class="logo" onerror="this.src='assets/icon/favicon.png'">
+    </div>
+    <ion-buttons slot="end">
+      <ion-button (click)="skipTutorial()" class="skip-button">
+        Skip
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="tutorial-container">
+    <!-- Common Help Header -->
+    <h1 class="help-title">Help</h1>
+    
+    <!-- Slides Container -->
+    <div class="slides-container">
+      <div *ngFor="let slide of slides; let i = index" 
+           class="slide" 
+           [ngClass]="{'active': activeSlide === i}">
+        
+        <!-- Image Container (Moved to top) -->
+        <div class="image-container">
+          <img [src]="slide.image" [alt]="slide.title" class="slide-image">
+        </div>
+        
+        <!-- Title moved after image -->
+        <h2 class="slide-title">{{slide.title}}</h2>
+        
+        <!-- Description -->
+        <p class="slide-description">{{slide.description}}</p>
+      </div>
+    </div>
+    
+    <!-- Pagination Dots -->
+    <div class="pagination-dots">
+      <div *ngFor="let slide of slides; let i = index" 
+           class="dot" 
+           [ngClass]="{'active': activeSlide === i}"
+           (click)="goToSlide(i)">
+      </div>
+    </div>
+    
+    <!-- Navigation Buttons -->
+    <div class="navigation-buttons">
+      <button (click)="goToNextSlide()" 
+              class="primary-button">
+        Go To Tradiuus Home
+      </button>
+    </div>
+    
+    <!-- Re-added suggestion link -->
+    <div class="suggestion-link">
+      <a href="mailto:feedback@tradiuus.com">Write a suggestion for us</a>
+    </div>
+  </div>
+</ion-content> 
