@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 
@@ -8,7 +8,7 @@ import { IonicModule } from '@ionic/angular';
   templateUrl: './tutorial.component.html',
   styleUrls: ['./tutorial.component.scss'],
   standalone: true,
-  imports: [CommonModule, IonicModule]
+  imports: [CommonModule, IonicModule, RouterModule]
 })
 export class TutorialComponent implements OnInit {
   slides = [

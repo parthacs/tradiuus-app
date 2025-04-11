@@ -94,6 +94,10 @@ const routes: Routes = [
   {
     path: 'dashboard',
     loadComponent: () => import('./dashboard/dashboard.component').then(m => m.DashboardComponent)
+  },
+  {
+    path: 'contact-us',
+    loadComponent: () => import('./contact-us/contact-us.component').then(m => m.ContactUsComponent)
   }
 ];
 
