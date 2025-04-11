@@ -79,4 +79,26 @@ export class SignupPage implements OnInit {
       }
     });
   }
+
+  // New method to handle name capitalization
+  onNameInput(event: any) {
+    const nameControl = this.signupForm.get('name');
+    if (!nameControl || !nameControl.value) return;
+    
+    // Convert the input to title case (capitalize first letter of each word)
+    const titleCaseName = this.toTitleCase(nameControl.value);
+    
+    // Only update if changed to avoid cursor position issues
+    if (titleCaseName !== nameControl.value) {
+      nameControl.setValue(titleCaseName, { emitEvent: false });
+    }
+  }
+
+  // Helper function to convert string to title case
+  toTitleCase(str: string): string {
+    // Split by spaces, then capitalize first letter of each word
+    return str.replace(/\w\S*/g, (text) => {
+      return text.charAt(0).toUpperCase() + text.substring(1);
+    });
+  }
 }
