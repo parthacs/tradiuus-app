@@ -1,0 +1,122 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Payment Information</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container">
+    <!-- List of saved cards -->
+    <div class="saved-cards" *ngIf="!isAddingNewCard">
+      <h2>Saved Cards</h2>
+      
+      <div class="card-list">
+        <div class="card-item" *ngFor="let card of cards">
+          <div class="card-info">
+            <div class="card-type">
+              <img [src]="'assets/icon/' + card.cardType + '.svg'" [alt]="card.cardType">
+            </div>
+            <div class="card-details">
+              <div class="card-number">{{ card.cardNumber }}</div>
+              <div class="card-name">{{ card.cardName }}</div>
+              <div class="card-expiry">Expires {{ card.expiryDate }}</div>
+            </div>
+            <div class="card-actions">
+              <ion-button fill="clear" (click)="editCard(card)">
+                <ion-icon name="create-outline"></ion-icon>
+              </ion-button>
+              <ion-button fill="clear" color="danger" (click)="deleteCard(card.id)">
+                <ion-icon name="trash-outline"></ion-icon>
+              </ion-button>
+              <ion-button fill="clear" (click)="setDefaultCard(card.id)" [color]="card.isDefault ? 'success' : 'medium'">
+                <ion-icon [name]="card.isDefault ? 'checkmark-circle' : 'radio-button-off'"></ion-icon>
+              </ion-button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <ion-button expand="block" (click)="addNewCard()" class="add-card-button">
+        <ion-icon name="add-circle-outline" slot="start"></ion-icon>
+        Add New Card
+      </ion-button>
+    </div>
+
+    <!-- Add/Edit Card Form -->
+    <div class="card-form" *ngIf="isAddingNewCard">
+      <h2>{{ editingCardId ? 'Edit Card' : 'Add New Card' }}</h2>
+
+      <form [formGroup]="paymentForm" (ngSubmit)="onSubmit()">
+        <ion-item>
+          <ion-label position="stacked">Card Number</ion-label>
+          <ion-input 
+            type="text" 
+            formControlName="cardNumber"
+            (ionInput)="formatCardNumber($event)"
+            placeholder="1234 5678 9012 3456"
+            maxlength="19">
+          </ion-input>
+          <ion-note slot="error" *ngIf="paymentForm.get('cardNumber')?.errors?.['required'] && paymentForm.get('cardNumber')?.touched">
+            Card number is required
+          </ion-note>
+          <ion-note slot="error" *ngIf="paymentForm.get('cardNumber')?.errors?.['pattern'] && paymentForm.get('cardNumber')?.touched">
+            Please enter a valid card number
+          </ion-note>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Name on Card</ion-label>
+          <ion-input 
+            type="text" 
+            formControlName="cardName"
+            placeholder="John Doe">
+          </ion-input>
+          <ion-note slot="error" *ngIf="paymentForm.get('cardName')?.errors?.['required'] && paymentForm.get('cardName')?.touched">
+            Name is required
+          </ion-note>
+        </ion-item>
+
+        <div class="form-row">
+          <ion-item>
+            <ion-label position="stacked">Expiry Date</ion-label>
+            <ion-input 
+              type="text" 
+              formControlName="expiryDate"
+              (ionInput)="formatExpiryDate($event)"
+              placeholder="MM/YY"
+              maxlength="5">
+            </ion-input>
+            <ion-note slot="error" *ngIf="paymentForm.get('expiryDate')?.errors?.['required'] && paymentForm.get('expiryDate')?.touched">
+              Expiry date is required
+            </ion-note>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="stacked">CVV</ion-label>
+            <ion-input 
+              type="password" 
+              formControlName="cvv"
+              placeholder="123"
+              maxlength="4">
+            </ion-input>
+            <ion-note slot="error" *ngIf="paymentForm.get('cvv')?.errors?.['required'] && paymentForm.get('cvv')?.touched">
+              CVV is required
+            </ion-note>
+          </ion-item>
+        </div>
+
+        <div class="form-actions">
+          <ion-button expand="block" type="submit" [disabled]="!paymentForm.valid">
+            {{ editingCardId ? 'Update Card' : 'Add Card' }}
+          </ion-button>
+          <ion-button expand="block" fill="clear" (click)="cancel()">
+            Cancel
+          </ion-button>
+        </div>
+      </form>
+    </div>
+  </div>
+</ion-content> 

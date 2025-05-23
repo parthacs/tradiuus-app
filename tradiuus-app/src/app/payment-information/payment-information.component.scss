@@ -1,0 +1,144 @@
+.container {
+  padding: 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+h2 {
+  color: var(--ion-color-dark);
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+// Saved Cards Section
+.saved-cards {
+  .card-list {
+    margin-bottom: 2rem;
+  }
+
+  .card-item {
+    background: white;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .card-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .card-type {
+    img {
+      width: 40px;
+      height: 25px;
+      object-fit: contain;
+    }
+  }
+
+  .card-details {
+    flex: 1;
+
+    .card-number {
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+    }
+
+    .card-name {
+      color: var(--ion-color-medium);
+      font-size: 0.9rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .card-expiry {
+      color: var(--ion-color-medium);
+      font-size: 0.9rem;
+    }
+  }
+
+  .card-actions {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .add-card-button {
+    margin-top: 1rem;
+  }
+}
+
+// Card Form Section
+.card-form {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  ion-item {
+    --padding-start: 0;
+    --inner-padding-end: 0;
+    margin-bottom: 1rem;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .form-actions {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+// Responsive Design
+@media (max-width: 576px) {
+  .container {
+    padding: 0.5rem;
+  }
+
+  .card-form {
+    padding: 1rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .card-info {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .card-actions {
+    width: 100%;
+    justify-content: flex-end;
+    margin-top: 1rem;
+  }
+}
+
+// Dark Mode Support
+@media (prefers-color-scheme: dark) {
+  .card-item,
+  .card-form {
+    background: var(--ion-color-dark);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  h2 {
+    color: var(--ion-color-light);
+  }
+
+  .card-details {
+    .card-number {
+      color: var(--ion-color-light);
+    }
+  }
+} 

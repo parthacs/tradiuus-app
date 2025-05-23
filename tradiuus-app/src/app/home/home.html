@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Tradiuus - Real-time Trade Contractor Connection</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Tradiuus connects you with trade contractors in real-time within your radius. Get emergency assistance and quick estimates for your trade needs.">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    header {
+      background-color: #0F0A32;
+      color: white;
+      padding: 20px 0;
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      height: 50px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #0F0A32 0%, #1a1a3a 100%);
+      color: white;
+      padding: 80px 0;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 1.2em;
+      max-width: 800px;
+      margin: 0 auto 30px;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 15px 30px;
+      background-color: #4CAF50;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: 500;
+      transition: background-color 0.3s;
+    }
+
+    .cta-button:hover {
+      background-color: #45a049;
+    }
+
+    .features {
+      padding: 80px 0;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .feature-card {
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .feature-card h3 {
+      color: #0F0A32;
+      margin-bottom: 15px;
+    }
+
+    .how-it-works {
+      background-color: #f9f9f9;
+      padding: 80px 0;
+    }
+
+    .steps {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 40px;
+    }
+
+    .step {
+      flex: 1;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .step-number {
+      width: 40px;
+      height: 40px;
+      background-color: #0F0A32;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 15px;
+    }
+
+    footer {
+      background-color: #0F0A32;
+      color: white;
+      padding: 40px 0;
+      text-align: center;
+    }
+
+    .footer-links {
+      margin-top: 20px;
+    }
+
+    .footer-links a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+    }
+
+    @media (max-width: 768px) {
+      .steps {
+        flex-direction: column;
+      }
+      
+      .step {
+        margin-bottom: 30px;
+      }
+    }
+
+    /* Responsive Design Updates */
+    @media (max-width: 1200px) {
+      .container {
+        max-width: 95%;
+      }
+    }
+
+    @media (max-width: 992px) {
+      .hero h1 {
+        font-size: 2.5em;
+      }
+
+      .hero p {
+        font-size: 1.1em;
+        padding: 0 20px;
+      }
+
+      .feature-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      }
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 15px 0;
+      }
+
+      .header-content {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .header-content nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      .hero {
+        padding: 60px 0;
+      }
+
+      .hero h1 {
+        font-size: 2em;
+        padding: 0 15px;
+      }
+
+      .hero p {
+        font-size: 1em;
+        padding: 0 15px;
+      }
+
+      .cta-button {
+        padding: 12px 24px;
+        font-size: 0.9em;
+      }
+
+      .features {
+        padding: 60px 0;
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .feature-card {
+        padding: 20px;
+      }
+
+      .how-it-works {
+        padding: 60px 0;
+      }
+
+      .steps {
+        flex-direction: column;
+        gap: 30px;
+      }
+
+      .step {
+        padding: 15px;
+      }
+
+      footer {
+        padding: 30px 0;
+      }
+
+      .footer-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      .footer-links a {
+        margin: 0 10px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .hero h1 {
+        font-size: 1.8em;
+      }
+
+      .hero p {
+        font-size: 0.9em;
+      }
+
+      .feature-card h3 {
+        font-size: 1.2em;
+      }
+
+      .feature-card p {
+        font-size: 0.9em;
+      }
+
+      .step h3 {
+        font-size: 1.1em;
+      }
+
+      .step p {
+        font-size: 0.9em;
+      }
+
+      .footer-links {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .footer-links a {
+        margin: 5px 0;
+      }
+    }
+
+    /* Mobile Menu */
+    .mobile-menu-button {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .mobile-menu-button {
+        display: block;
+      }
+
+      .header-content nav {
+        display: none;
+      }
+
+      .header-content nav.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: #0F0A32;
+        padding: 15px;
+      }
+    }
+
+    /* Smooth Scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Touch-friendly elements */
+    .cta-button, .footer-links a {
+      padding: 12px 20px;
+      min-width: 44px;
+      min-height: 44px;
+    }
+
+    /* Prevent text overflow */
+    .feature-card, .step {
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container header-content">
+      <img src="assets/icon/tradiuus-logo.svg" alt="Tradiuus Logo" class="logo">
+      <button class="mobile-menu-button">☰</button>
+      <nav>
+        <a href="#features" class="footer-links">Features</a>
+        <a href="#how-it-works" class="footer-links">How It Works</a>
+        <a href="/login" class="footer-links">Login</a>
+        <a href="/signup" class="footer-links">Sign Up</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Connect with Trade Contractors in Real-Time</h1>
+      <p>Tradiuus is your go-to platform for connecting with trade contractors active within your radius. Get emergency assistance and quick estimates when you need them most.</p>
+      <a href="/signup" class="cta-button">Get Started</a>
+    </div>
+  </section>
+
+  <section id="features" class="features">
+    <div class="container">
+      <h2>Key Features</h2>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <h3>Emergency Assistance</h3>
+          <p>Get immediate help from trade contractors for urgent situations. Our real-time connection system ensures you're never left waiting.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Quick Estimates</h3>
+          <p>Receive fast and accurate estimates for your trade needs. Compare prices and choose the best contractor for your project.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Real-Time Connection</h3>
+          <p>Connect with contractors who are active in your area. No more waiting for callbacks or searching through directories.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how-it-works" class="how-it-works">
+    <div class="container">
+      <h2>How It Works</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Create an Account</h3>
+          <p>Sign up for free and create your profile</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Submit Your Request</h3>
+          <p>Describe your trade needs or emergency situation</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Get Connected</h3>
+          <p>Receive responses from contractors in your area</p>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <h3>Choose & Connect</h3>
+          <p>Select the best contractor for your needs</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <img src="assets/icon/tradiuus-logo.svg" alt="Tradiuus Logo" class="logo">
+      <div class="footer-links">
+        <a href="/contact-us">Contact Us</a>
+        <a href="/tutorial">Help</a>
+        <a href="/privacy-policy">Privacy Policy</a>
+        <a href="/terms">Terms of Service</a>
+      </div>
+      <p>&copy; 2024 Tradiuus. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <app-root></app-root>
+
+  <script>
+    // Mobile menu toggle
+    document.querySelector('.mobile-menu-button').addEventListener('click', function() {
+      document.querySelector('.header-content nav').classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(event) {
+      const nav = document.querySelector('.header-content nav');
+      const button = document.querySelector('.mobile-menu-button');
+      if (!nav.contains(event.target) && !button.contains(event.target)) {
+        nav.classList.remove('active');
+      }
+    });
+  </script>
+</body>
+</html> 

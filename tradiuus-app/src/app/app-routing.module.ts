@@ -72,6 +72,10 @@ const routes: Routes = [
     loadComponent: () => import('./payment-success/payment-success.component').then(m => m.PaymentSuccessComponent)
   },
   {
+    path: 'payment-information',
+    loadComponent: () => import('./payment-information/payment-information.component').then(m => m.PaymentInformationComponent)
+  },
+  {
     path: 'forgot-password',
     loadComponent: () => import('./forgot-password/forgot-password.component').then(m => m.ForgotPasswordComponent)
   },
@@ -98,6 +102,10 @@ const routes: Routes = [
   {
     path: 'contact-us',
     loadComponent: () => import('./contact-us/contact-us.component').then(m => m.ContactUsComponent)
+  },
+  {
+    path: 'external-website',
+    loadComponent: () => import('./external-website/external-website.component').then(m => m.ExternalWebsiteComponent)
   }
 ];
 
